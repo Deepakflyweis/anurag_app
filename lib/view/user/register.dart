@@ -38,9 +38,9 @@ class _RegisterState extends State<Register> {
                 'assets/images/icon.png',
                 width: 150.0,
                 height: 150.0,
-                fit: BoxFit.cover,
+                fit: BoxFit.fill,
               ),
-              SizedBox(height: 30.0),
+              SizedBox(height: 50.0),
               Text(
                 'Register your account',
                 style: grey14BoldTextStyle,
@@ -112,7 +112,7 @@ class _RegisterState extends State<Register> {
                 padding: EdgeInsets.only(right: 20.0, left: 20.0),
                 child: Container(
                   decoration: BoxDecoration(
-                    color: whiteColor,
+                    
                     borderRadius: BorderRadius.circular(10.0), 
                   ),
                   child: TextField(
@@ -129,6 +129,7 @@ class _RegisterState extends State<Register> {
                   ),
                 ),
               ),
+              height20Space,
               height20Space,
               Padding(
                 padding:
@@ -150,7 +151,7 @@ class _RegisterState extends State<Register> {
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10.0),
-                      color: Colors.blue.shade900,
+                      color: primaryColor,
                     ),
                     child: Text(
                       'Continue',

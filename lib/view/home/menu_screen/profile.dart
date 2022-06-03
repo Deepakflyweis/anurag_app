@@ -78,7 +78,7 @@ class _ProfileState extends State<Profile> {
                           },
                           child: Container(
                             width: (width - fixPadding * 14.0) / 2,
-                            padding: EdgeInsets.symmetric(vertical: fixPadding),
+                            padding:  EdgeInsets.symmetric(vertical: fixPadding),
                             alignment: Alignment.center,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10.0),
@@ -217,7 +217,7 @@ class _ProfileState extends State<Profile> {
               alignment: Alignment.center,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20.0),
-                color: primaryColor,
+                color: Colors.blue.shade900,
               ),
               child: Icon(
                 Icons.edit,
@@ -313,7 +313,7 @@ class _ProfileState extends State<Profile> {
 
   settingTile(title) {
     return Container(
-      padding: EdgeInsets.fromLTRB(
+      padding: const EdgeInsets.fromLTRB(
           fixPadding * 2.0, fixPadding, fixPadding * 2.0, 0.0),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -327,7 +327,7 @@ class _ProfileState extends State<Profile> {
                 title,
                 style: black14MediumTextStyle,
               ),
-              Icon(
+             const Icon(
                 Icons.keyboard_arrow_right,
                 size: 16.0,
                 color: blackColor,

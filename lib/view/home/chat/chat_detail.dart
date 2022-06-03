@@ -17,9 +17,9 @@ class _ChatScreenState extends State<ChatScreen> {
 
   final msgController = TextEditingController();
   DateTime now = DateTime.now();
-  ScrollController _scrollController = new ScrollController();
+  ScrollController _scrollController =   ScrollController();
   late String amPm;
-  final chatData = [
+  List chatData = [
     {
       'role': 'me',
       'msg': 'You\'re available tomorrow for work?',
@@ -241,6 +241,11 @@ class _ChatScreenState extends State<ChatScreen> {
                               amPm = 'AM';
                             }
                             setState(() {
+
+
+
+
+                              
                               chatData.insert(0, {
                                 'role': 'me',
                                 'msg': msgController.text,

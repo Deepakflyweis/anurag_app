@@ -98,7 +98,7 @@ class _OtpScreenState extends State<OtpScreen>   {
                 'assets/images/icon.png',
                 width: 150.0,
                 height: 150.0,
-                fit: BoxFit.cover,
+                fit: BoxFit.fill,
               ),
               SizedBox(height: 30.0),
               Padding(

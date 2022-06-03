@@ -1,3 +1,4 @@
+import 'package:anurag_app/view/home/bottom_bar.dart';
 import 'package:anurag_app/view/user/login_gmail_page.dart';
 import 'package:anurag_app/view/user/login_mobile.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +20,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(     
         primarySwatch: Colors.blue,
       ),
-      home:   LoginMobileScreen(),
+      home: BottomBar(index: 1),
+        // LoginMobileScreen(),
     );
   }
 }

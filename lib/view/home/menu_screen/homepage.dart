@@ -2,6 +2,8 @@
 
 import 'package:anurag_app/utils/utility.dart';
 import 'package:anurag_app/view/home/bottom_bar.dart';
+import 'package:anurag_app/view/home/service/service_prvider_list.dart';
+import 'package:anurag_app/view/home/service/service_screen.dart';
 import 'package:anurag_app/view/search/search.dart';
 import 'package:anurag_app/widget/column_builder.dart';
 import 'package:flutter/material.dart';
@@ -15,40 +17,40 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   
-  final serviceList = [
+    List serviceList = [
     {
       'title': 'Personal Care Services',
-      'image': 'assets/icon/white/001-household.png',
-      'color': orangeColor
+      'image': 'assets/images/clean.png',
+       
     },
     {
       'title': 'Home Care Services',
-      'image': 'assets/icon/white/002-plumber.png',
-      'color': primaryColor
+      'image': 'assets/images/plumber.png',
+       
     },
     {
       'title': 'Home Design Services',
-      'image': 'assets/icon/white/003-electrician.png',
-      'color': redColor
+      'image': 'assets/images/elec.png',
+       
     },
     {
       'title': 'Repair Services',
-      'image': 'assets/icon/white/004-painter.png',
-      'color': orangeColor
+      'image': 'assets/images/painter.png',
+       
     },
     {
       'title': 'Best Offer',
-      'image': 'assets/icon/white/005-meditation.png',
-      'color': primaryColor
+      'image': 'assets/images/yoga.png',
+      
     },
     {
       'title': 'Beautician',
-      'image': 'assets/icon/white/006-makeup.png',
-      'color': redColor
+      'image': 'assets/images/beauty.png',
+      
     }
   ];
 
-  final bestOfferList = [
+  List bestOfferList = [
     {
       'title': 'Salon at home for Women',
       'image': 'assets/best-offers/best-offers-1.jpeg',
@@ -71,7 +73,7 @@ class _HomePageState extends State<HomePage> {
     }
   ];
 
-  final reviewList = [
+  List reviewList = [
     {
       'name': 'Natasha',
       'review':
@@ -111,6 +113,11 @@ class _HomePageState extends State<HomePage> {
         children: [
           userAndLocation(),
           searchBar(),
+          SizedBox(height: 25,),
+          Image.asset(
+            "assets/images/add.png", width: double.infinity,
+          height: 130,fit: BoxFit.fill,),
+          
           selectService(),
           todaysOfferBanner(),
           bestOffers(),
@@ -175,18 +182,13 @@ class _HomePageState extends State<HomePage> {
               height: 60.0,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(30.0),
-                image: DecorationImage(
-                  image: AssetImage('assets/user/user_5.jpg'),
-                  fit: BoxFit.cover,
-                ),
-                boxShadow: [
-                  BoxShadow(
-                    blurRadius: 4.0,
-                    spreadRadius: 1.0,
-                    color: blackColor.withOpacity(0.25),
-                  ),
-                ],
+                // image: const DecorationImage(
+                //   image:  AssetImage('assets/user/user_5.jpg'),
+                //   fit: BoxFit.cover,+
+                // ),
+                 
               ),
+              child: Image.asset('assets/user/user_5.jpg',fit: BoxFit.fill,),
             ),
           ),
         ],
@@ -249,36 +251,7 @@ class _HomePageState extends State<HomePage> {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        // Padding(
-        //   padding: const EdgeInsets.fromLTRB(
-        //       fixPadding * 2.0, fixPadding * 2.0, fixPadding * 2.0, 0),
-        //   child: InkWell(
-        //     onTap: () {
-        //       // Navigator.push(
-        //       //   context,
-        //       //   PageTransition(
-        //       //     type: PageTransitionType.rightToLeft,
-        //       //     child: ServiceProviderList(),
-        //       //   ),
-        //       // );
-        //     },
-        //     child: Container(
-        //       height: 50.0,
-        //       width: MediaQuery.of(context).size.width,
-        //       decoration: BoxDecoration(
-        //         gradient: primarygradient,
-        //         borderRadius: BorderRadius.circular(10.0),
-        //       ),
-        //       child: Center(
-        //         child: Text(
-        //           'Book Salon Services9',
-        //           style: white18MediumTextStyle,
-        //         ),
-        //       ),
-        //     ),
-        //   ),
-        // ),
-        Padding(
+         Padding(
           padding: const EdgeInsets.all(fixPadding * 2.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -298,60 +271,52 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
         ),
-        Container(
-          height: 105.0,
-          width: MediaQuery.of(context).size.width,
+        SizedBox(
+          height: 150.0,           
           child: ListView.builder(
+            shrinkWrap: true,
             itemCount: serviceList.length,
             scrollDirection: Axis.horizontal,
             physics: BouncingScrollPhysics(),
             itemBuilder: (context, index) {
-              final item = serviceList[index];
+                final item = serviceList[index];
               return Padding(
-                padding: (index != serviceList.length - 1)
-                    ? const EdgeInsets.only(left: fixPadding * 2.0)
-                    : const EdgeInsets.symmetric(horizontal: fixPadding * 2.0),
-                child: InkWell(
-                  onTap: () {
-                    // Navigator.push(
-                    //   context,
-                    //   PageTransition(
-                    //     type: PageTransitionType.rightToLeft,
-                    //     child: ServiceList(),
-                    //   ),
-                    // );
-                  },
-                  borderRadius: BorderRadius.circular(10.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        width: 80.0,
-                        height: 80.0,
-                        alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10.0),
-                          // color: item['color'],
-                        ),
-                        // child: Image.asset(
-                        //    item[index],
-                        //   width: 60.0,
-                        //   height: 60.0,
-                        //   fit: BoxFit.cover,
-                        // ),
+                 padding: EdgeInsets.all(10),
+                // padding: (index != serviceList.length - 1)
+                //     ? const EdgeInsets.only(left: fixPadding * 2.0)
+                //     : const EdgeInsets.symmetric(horizontal: fixPadding * 2.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      height: 110,
+                      width: 120,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8),
+                        border: Border.all(width: 0.8,color: blackColor)
                       ),
-                      Container(
-                        width: 80.0,
-                        // height: 25.0,
-                        alignment: Alignment.bottomCenter,
-                        // child: Text(
-                        //   item['title'],
-                        //   style: black10MediumTextStyle,
-                        // ),
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            PageTransition(
+                              type: PageTransitionType.rightToLeft,
+                              child: ServiceList(),
+                            ),
+                          );
+                        },                        
+                        child:Image.asset(
+                                item['image'],                              
+                                fit: BoxFit.fill,),                      
+                         
                       ),
-                    ],
-                  ),
+                    ),
+
+                    Text(
+                           item['title'],
+                           style: black14MediumTextStyle,
+                         ),
+                  ],
                 ),
               );
             },
@@ -395,13 +360,13 @@ class _HomePageState extends State<HomePage> {
                 padding: const EdgeInsets.only(top: fixPadding * 2.0),
                 child: InkWell(
                   onTap: () {
-                    // Navigator.push(
-                    //   context,
-                    //   PageTransition(
-                    //     type: PageTransitionType.rightToLeft,
-                    //     child: ServiceProviderList(),
-                    //   ),
-                    // );
+                    Navigator.push(
+                      context,
+                      PageTransition(
+                        type: PageTransitionType.rightToLeft,
+                        child: ServiceProviderList(),
+                      ),
+                    );
                   },
                   borderRadius: BorderRadius.circular(10.0),
                   child: Container(
@@ -423,12 +388,12 @@ class _HomePageState extends State<HomePage> {
                         ClipRRect(
                           borderRadius:
                               BorderRadius.vertical(top: Radius.circular(10.0)),
-                          // child: Image.asset(
-                          //   item['image'],
-                          //   width: double.infinity,
-                          //   height: 225.0,
-                          //   fit: BoxFit.cover,
-                          // ),
+                          child: Image.asset(
+                            item['image'],
+                            width: double.infinity,
+                            height: 225.0,
+                            fit: BoxFit.cover,
+                          ),
                         ),
                         Container(
                           width: double.infinity,
@@ -437,15 +402,15 @@ class _HomePageState extends State<HomePage> {
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              // Text(
-                              //   item['title'],
-                              //   style: black12MediumTextStyle,
-                              // ),
-                              // height5Space,
-                              // Text(
-                              //   item['subtitle'],
-                              //   style: grey12MediumTextStyle,
-                              // ),
+                              Text(
+                                item['title'],
+                                style: black12MediumTextStyle,
+                              ),
+                              height5Space,
+                              Text(
+                                item['subtitle'],
+                                style: grey12MediumTextStyle,
+                              ),
                             ],
                           ),
                         ),
@@ -474,61 +439,62 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         height20Space,
-        // SizedBox(
-        //   height: 130.0,
-        //   width: double.infinity,
-        //   child: ListView.builder(
-        //     itemCount: reviewList.length,
-        //     scrollDirection: Axis.horizontal,
-        //     physics: BouncingScrollPhysics(),
-        //     itemBuilder: (context, index) {
-        //       final item = reviewList[index];
-        //       return Padding(
-        //         padding: (index != reviewList.length - 1)
-        //             ? const EdgeInsets.only(left: fixPadding * 2.0)
-        //             : const EdgeInsets.symmetric(horizontal: fixPadding * 2.0),
-        //         child: Padding(
-        //           padding: const EdgeInsets.symmetric(vertical: 4.0),
-        //           child: Container(
-        //             padding: EdgeInsets.all(fixPadding),
-        //             height: double.infinity,
-        //             width: 245.0,
-        //             decoration: BoxDecoration(
-        //               borderRadius: BorderRadius.circular(10.0),
-        //               color: const Color(0xFFDCDFD8),
-        //               boxShadow: [
-        //                 BoxShadow(
-        //                   blurRadius: 4.0,
-        //                   spreadRadius: 1.0,
-        //                   color: blackColor.withOpacity(0.25),
-        //                 ),
-        //               ],
-        //             ),
-        //             child: Column(
-        //               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        //               crossAxisAlignment: CrossAxisAlignment.start,
-        //               children: [
-        //                 // Text(
-        //                 //   item['service'],
-        //                 //   style: black12RegularTextStyle,
-        //                 // ),
-        //                 // Text(
-        //                 //   item['review'],
-        //                 //   style: black12MediumTextStyle,
-        //                 // ),
-        //                 // Text(
-        //                 //   item['name'],
-        //                 //   style: black14BoldTextStyle,
-        //                 // ),
-        //               ],
-        //             ),
-        //           ),
-        //         ),
-        //       );
-        //     },
-        //   ),
-        // ),
-        // height20Space,
+        SizedBox(
+          height: 130.0,
+          width: double.infinity,
+          child: ListView.builder(
+            itemCount: reviewList.length,
+            scrollDirection: Axis.horizontal,
+            physics: BouncingScrollPhysics(),
+            itemBuilder: (context, index) {
+              final item = reviewList[index];
+              return Padding(
+                padding: (index != reviewList.length - 1)
+                    ? const EdgeInsets.only(left: fixPadding * 2.0)
+                    : const EdgeInsets.symmetric(horizontal: fixPadding * 2.0),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 4.0),
+                  child: Container(
+                    padding: EdgeInsets.all(fixPadding),
+                    height: double.infinity,
+                    width: 245.0,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10.0),
+                      color: const Color(0xFFDCDFD8),
+                      boxShadow: [
+                        BoxShadow(
+                          blurRadius: 4.0,
+                          spreadRadius: 1.0,
+                          color: blackColor.withOpacity(0.25),
+                        ),
+                      ],
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          item['service'],
+                          style: black12RegularTextStyle,
+                        ),
+                        Text(
+                          item['review'],
+                          style: black12MediumTextStyle,
+                        ),
+                        Text(
+                          item['name'],
+                          style: black14BoldTextStyle,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              );
+            },
+          ),
+        ),
+        height20Space,
+      
       ],
     );
   }

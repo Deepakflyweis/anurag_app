@@ -1,5 +1,6 @@
 
 import 'package:anurag_app/utils/utility.dart';
+import 'package:anurag_app/view/home/service/service_prvider_list.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
  
@@ -70,13 +71,13 @@ class _ServiceListState extends State<ServiceList> {
                 : EdgeInsets.all(fixPadding * 2.0),
             child: InkWell(
               onTap: () {
-                // Navigator.push(
-                //   context,
-                //   PageTransition(
-                //     type: PageTransitionType.rightToLeft,
-                //     child: ServiceProviderList(),
-                //   ),
-                // );
+                Navigator.push(
+                  context,
+                  PageTransition(
+                    type: PageTransitionType.rightToLeft,
+                    child: ServiceProviderList(),
+                  ),
+                );
               },
               borderRadius: BorderRadius.circular(10.0),
               child: Container(

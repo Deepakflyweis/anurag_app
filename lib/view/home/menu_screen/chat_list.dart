@@ -1,5 +1,6 @@
 
 import 'package:anurag_app/utils/utility.dart';
+import 'package:anurag_app/view/home/chat/chat_detail.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
  
@@ -10,7 +11,8 @@ class ChatList extends StatefulWidget {
 }
 
 class _ChatListState extends State<ChatList> {
-  final chatList = [
+
+  List chatList = [
     {
       'name': 'Apollonia Anderson',
       'image': 'assets/provider/provider_1.jpg',
@@ -118,12 +120,12 @@ class _ChatListState extends State<ChatList> {
                   children: [
                     InkWell(
                       onTap: () {
-                        // Navigator.push(
-                        //     context,
-                        //     PageTransition(
-                        //         duration: Duration(milliseconds: 500),
-                        //         type: PageTransitionType.rightToLeft,
-                        //         child: ChatScreen(name: item['name'])));
+                        Navigator.push(
+                            context,
+                            PageTransition(
+                                duration: Duration(milliseconds: 500),
+                                type: PageTransitionType.rightToLeft,
+                                child: ChatScreen(name: item['name'])));
                       },
                       child: Container(
                         padding: EdgeInsets.all(fixPadding * 2.0),
@@ -138,10 +140,10 @@ class _ChatListState extends State<ChatList> {
                                 borderRadius: BorderRadius.circular(35.0),
                                 border:
                                     Border.all(width: 0.3, color: primaryColor),
-                                // image: DecorationImage(
-                                //   image: AssetImage(item['image']),
-                                //   fit: BoxFit.contain,
-                                // ),
+                                image: DecorationImage(
+                                  image: AssetImage(item['image']),
+                                  fit: BoxFit.contain,
+                                ),
                               ),
                             ),
                             widthSpace,
@@ -163,10 +165,10 @@ class _ChatListState extends State<ChatList> {
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
                                           children: [
-                                            // Text(
-                                            //   item['name'],
-                                            //   style: black16MediumTextStyle,
-                                            // ),
+                                            Text(
+                                              item['name'],
+                                              style: black16MediumTextStyle,
+                                            ),
                                             SizedBox(width: 7.0),
                                             (item['status'] == 'unread')
                                                 ? Container(
@@ -183,21 +185,21 @@ class _ChatListState extends State<ChatList> {
                                           ],
                                         ),
                                         heightSpace,
-                                        // Text(
-                                        //   item['msg'],
-                                        //   style: grey14MediumTextStyle,
-                                        //   maxLines: 1,
-                                        //   overflow: TextOverflow.ellipsis,
-                                        // ),
+                                        Text(
+                                          item['msg'],
+                                          style: grey14MediumTextStyle,
+                                          maxLines: 1,
+                                          overflow: TextOverflow.ellipsis,
+                                        ),
                                       ],
                                     ),
                                   ),
                                   Wrap(
                                     children: [
-                                      // Text(
-                                      //   item['time'],
-                                      //   style: grey14MediumTextStyle,
-                                      // ),
+                                      Text(
+                                        item['time'],
+                                        style: grey14MediumTextStyle,
+                                      ),
                                     ],
                                   ),
                                 ],

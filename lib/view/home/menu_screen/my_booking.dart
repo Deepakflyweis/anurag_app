@@ -1,4 +1,7 @@
 import 'package:anurag_app/utils/utility.dart';
+import 'package:anurag_app/view/home/my_booking/cancelled_boking.dart';
+import 'package:anurag_app/view/home/my_booking/past_booking.dart';
+import 'package:anurag_app/view/home/my_booking/upcoming_booking.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
  
@@ -9,7 +12,7 @@ class MyBooking extends StatefulWidget {
 }
 
 class _MyBookingState extends State<MyBooking> {
-  final upcomingBookingList = [
+  List upcomingBookingList = [
     {
       'name': 'Apollonia Anderson',
       'date': '15 March 2021',
@@ -30,7 +33,7 @@ class _MyBookingState extends State<MyBooking> {
     }
   ];
 
-  final pastBookingList = [
+  List pastBookingList = [
     {
       'name': 'Amara Smith',
       'date': '18 March 2021',
@@ -57,7 +60,7 @@ class _MyBookingState extends State<MyBooking> {
     }
   ];
 
-  final cancelledBookingList = [
+  List cancelledBookingList = [
     {
       'name': 'Amara Smith',
       'date': '14 March 2021',
@@ -146,13 +149,13 @@ class _MyBookingState extends State<MyBooking> {
         final item = upcomingBookingList[index];
         return InkWell(
           onTap: () {
-            // Navigator.push(
-            //   context,
-            //   PageTransition(
-            //     type: PageTransitionType.rightToLeft,
-            //     child: UpcomingBooking(),
-            //   ),
-            // );
+            Navigator.push(
+              context,
+              PageTransition(
+                type: PageTransitionType.rightToLeft,
+                child: UpcomingBooking(),
+              ),
+            );
           },
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -173,11 +176,11 @@ class _MyBookingState extends State<MyBooking> {
                         border: Border.all(width: 1.0, color: greenColor),
                         color: greenColor.withOpacity(0.20),
                       ),
-                      // child: Text(
-                      //   item['date'],
-                      //   textAlign: TextAlign.center,
-                      //   style: green14MediumTextStyle,
-                      // ),
+                      child: Text(
+                        item['date'],
+                        textAlign: TextAlign.center,
+                        style: green14MediumTextStyle,
+                      ),
                     ),
                     widthSpace,
                     Container(
@@ -186,22 +189,22 @@ class _MyBookingState extends State<MyBooking> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          // Text(
-                          //   item['time'],
-                          //   style: black16BoldTextStyle,
-                          // ),
+                          Text(
+                            item['time'],
+                            style: black16BoldTextStyle,
+                          ),
                           SizedBox(height: 7.0),
-                          // Text(
-                          //   item['name'],
-                          //   style: black14MediumTextStyle,
-                          //   overflow: TextOverflow.ellipsis,
-                          // ),
+                          Text(
+                            item['name'],
+                            style: black14MediumTextStyle,
+                            overflow: TextOverflow.ellipsis,
+                          ),
                           SizedBox(height: 7.0),
-                          // Text(
-                          //   item['type'],
-                          //   style: primaryColor14RegularTextStyle,
-                          //   overflow: TextOverflow.ellipsis,
-                          // ),
+                          Text(
+                            item['type'],
+                            style: primaryColor14RegularTextStyle,
+                            overflow: TextOverflow.ellipsis,
+                          ),
                         ],
                       ),
                     ),
@@ -223,13 +226,13 @@ class _MyBookingState extends State<MyBooking> {
         final item = pastBookingList[index];
         return InkWell(
           onTap: () {
-            // Navigator.push(
-            //   context,
-            //   PageTransition(
-            //     type: PageTransitionType.rightToLeft,
-            //     child: PastBooking(),
-            //   ),
-            // );
+            Navigator.push(
+              context,
+              PageTransition(
+                type: PageTransitionType.rightToLeft,
+                child: PastBooking(),
+              ),
+            );
           },
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -250,11 +253,11 @@ class _MyBookingState extends State<MyBooking> {
                         border: Border.all(width: 1.0, color: primaryColor),
                         color: primaryColor.withOpacity(0.20),
                       ),
-                      // child: Text(
-                      //   item['date'],
-                      //   textAlign: TextAlign.center,
-                      //   style: primaryColor14MediumTextStyle,
-                      // ),
+                      child: Text(
+                        item['date'],
+                        textAlign: TextAlign.center,
+                        style: primaryColor14MediumTextStyle,
+                      ),
                     ),
                     widthSpace,
                     Container(
@@ -263,22 +266,22 @@ class _MyBookingState extends State<MyBooking> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          // Text(
-                          //   item['time'],
-                          //   style: black16BoldTextStyle,
-                          // ),
+                          Text(
+                            item['time'],
+                            style: black16BoldTextStyle,
+                          ),
                           SizedBox(height: 7.0),
-                          // Text(
-                          //   item['name'],
-                          //   style: black14MediumTextStyle,
-                          //   overflow: TextOverflow.ellipsis,
-                          // ),
+                          Text(
+                            item['name'],
+                            style: black14MediumTextStyle,
+                            overflow: TextOverflow.ellipsis,
+                          ),
                           SizedBox(height: 7.0),
-                          // Text(
-                          //   item['type'],
-                          //   style: primaryColor14RegularTextStyle,
-                          //   overflow: TextOverflow.ellipsis,
-                          // ),
+                          Text(
+                            item['type'],
+                            style: primaryColor14RegularTextStyle,
+                            overflow: TextOverflow.ellipsis,
+                          ),
                         ],
                       ),
                     ),
@@ -300,13 +303,13 @@ class _MyBookingState extends State<MyBooking> {
         final item = cancelledBookingList[index];
         return InkWell(
           onTap: () {
-            // Navigator.push(
-            //   context,
-            //   PageTransition(
-            //     type: PageTransitionType.rightToLeft,
-            //     child: CancelledBooking(),
-            //   ),
-            // );
+            Navigator.push(
+              context,
+              PageTransition(
+                type: PageTransitionType.rightToLeft,
+                child: CancelledBooking(),
+              ),
+            );
           },
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -327,11 +330,11 @@ class _MyBookingState extends State<MyBooking> {
                         border: Border.all(width: 1.0, color: redColor),
                         color: redColor.withOpacity(0.20),
                       ),
-                      // child: Text(
-                      //   item['date'],
-                      //   textAlign: TextAlign.center,
-                      //   style: red14MediumTextStyle,
-                      // ),
+                      child: Text(
+                        item['date'],
+                        textAlign: TextAlign.center,
+                        style: red14MediumTextStyle,
+                      ),
                     ),
                     widthSpace,
                     Container(
@@ -340,22 +343,22 @@ class _MyBookingState extends State<MyBooking> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          // Text(
-                          //   item['time'],
-                          //   style: black16BoldTextStyle,
-                          // ),
+                          Text(
+                            item['time'],
+                            style: black16BoldTextStyle,
+                          ),
                           SizedBox(height: 7.0),
-                          // Text(
-                          //   item['name'],
-                          //   style: black14MediumTextStyle,
-                          //   overflow: TextOverflow.ellipsis,
-                          // ),
+                          Text(
+                            item['name'],
+                            style: black14MediumTextStyle,
+                            overflow: TextOverflow.ellipsis,
+                          ),
                           SizedBox(height: 7.0),
-                          // Text(
-                          //   item['type'],
-                          //   style: primaryColor14RegularTextStyle,
-                          //   overflow: TextOverflow.ellipsis,
-                          // ),
+                          Text(
+                            item['type'],
+                            style: primaryColor14RegularTextStyle,
+                            overflow: TextOverflow.ellipsis,
+                          ),
                         ],
                       ),
                     ),

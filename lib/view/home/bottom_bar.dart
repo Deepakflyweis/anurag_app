@@ -48,8 +48,8 @@ class _BottomBarState extends State<BottomBar>  {
       bottomNavigationBar: Material(
         elevation: 1.0,
         child: Container(
-          width: double.infinity,
-          color: whiteColor,
+          width: double.infinity, 
+         color: whiteColor,
           padding: EdgeInsets.symmetric(horizontal: fixPadding * 2.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,

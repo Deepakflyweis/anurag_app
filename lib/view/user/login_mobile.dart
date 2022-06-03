@@ -45,7 +45,7 @@ class _LoginMobileScreenState extends State<LoginMobileScreen> {
       body: WillPopScope(
         child: ListView(
           children: [
-            SizedBox(height: 100.0),
+            SizedBox(height: 80.0),
             Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -54,9 +54,9 @@ class _LoginMobileScreenState extends State<LoginMobileScreen> {
                   'assets/images/icon.png',
                   width: 150.0,
                   height: 150.0,
-                  fit: BoxFit.cover,
+                  fit: BoxFit.fill,
                 ),
-                SizedBox(height: 30.0),
+                SizedBox(height: 50.0),
                 Text(
                   'Signin with phone number',
                   style: grey14BoldTextStyle,
