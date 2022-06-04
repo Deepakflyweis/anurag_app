@@ -18,7 +18,7 @@ class _SelectDateTimeState extends State<SelectDateTime> {
   late DateTime _selectedDate;
   String selectedTime = '';
 
-  final slotList = [
+  List slotList = [
     {'time': '08:00 AM'},
     {'time': '09:00 AM'},
     {'time': '10:00 AM'},

@@ -8,7 +8,7 @@ class Notifications extends StatefulWidget {
 }
 
 class _NotificationsState extends State<Notifications> {
-  final notificationList = [
+  List notificationList = [
     {
       'title': 'Booking Confirm',
       'description': 'Congratulation... Your booking has been confirmed'
@@ -122,15 +122,15 @@ class _NotificationsState extends State<Notifications> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                // Text(
-                                //   item['title'],
-                                //   style: black14BoldTextStyle,
-                                // ),
+                                Text(
+                                  item['title'],
+                                  style: black14BoldTextStyle,
+                                ),
                                 height5Space,
-                                // Text(
-                                //   item['description'],
-                                //   style: black14MediumTextStyle,
-                                // ),
+                                Text(
+                                  item['description'],
+                                  style: black14MediumTextStyle,
+                                ),
                               ],
                             ),
                           ),

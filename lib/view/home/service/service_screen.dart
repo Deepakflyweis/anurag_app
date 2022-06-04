@@ -11,7 +11,7 @@ class ServiceList extends StatefulWidget {
 }
 
 class _ServiceListState extends State<ServiceList> {
-  final serviceList = [
+  List serviceList = [
     {
       'title': 'Full Home Cleaning',
       'image': 'assets/service-image/full-home-cleaning.jpg'
@@ -99,18 +99,18 @@ class _ServiceListState extends State<ServiceList> {
                   children: [
                     ClipRRect(
                       borderRadius: BorderRadius.circular(10.0),
-                      // child: Image.asset(
-                      //   item['image'],
-                      //   width: 60.0,
-                      //   height: 60.0,
-                      //   fit: BoxFit.cover,
-                      // ),
+                      child: Image.asset(
+                        item['image'],
+                        width: 60.0,
+                        height: 60.0,
+                        fit: BoxFit.cover,
+                      ),
                     ),
                     widthSpace,
-                    // Text(
-                    //   item['title'],
-                    //   style: black14BoldTextStyle,
-                    // ),
+                    Text(
+                      item['title'],
+                      style: black14BoldTextStyle,
+                    ),
                   ],
                 ),
               ),

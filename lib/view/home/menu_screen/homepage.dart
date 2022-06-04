@@ -53,22 +53,22 @@ class _HomePageState extends State<HomePage> {
   List bestOfferList = [
     {
       'title': 'Salon at home for Women',
-      'image': 'assets/best-offers/best-offers-1.jpeg',
+      'image': 'assets/images/img1.png',
       'subtitle': 'Upto 50% Off'
     },
     {
       'title': 'Salon for Men',
-      'image': 'assets/best-offers/best-offers-2.jpeg',
+      'image': 'assets/images/img2.png',
       'subtitle': 'Upto 50% Off'
     },
     {
       'title': 'Bathroom Cleaning',
-      'image': 'assets/best-offers/best-offers-3.jpeg',
+      'image': 'assets/images/img3.png',
       'subtitle': 'Free Fan Cleaning & More'
     },
     {
       'title': 'House Painters',
-      'image': 'assets/best-offers/best-offers-4.jpeg',
+      'image': 'assets/images/img1.png',
       'subtitle': 'Upto 15% Off'
     }
   ];
@@ -107,22 +107,27 @@ class _HomePageState extends State<HomePage> {
   ];
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: greyBack,
-      body: ListView(
-        children: [
-          userAndLocation(),
-          searchBar(),
-          SizedBox(height: 25,),
-          Image.asset(
-            "assets/images/add.png", width: double.infinity,
-          height: 130,fit: BoxFit.fill,),
-          
-          selectService(),
-          todaysOfferBanner(),
-          bestOffers(),
-          customerReviews(),
-        ],
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: greyBack,
+        body: ListView(
+          children: [
+            userAndLocation(),
+            searchBar(),
+            SizedBox(height: 25,),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Image.asset(
+                "assets/images/add.png", width: double.infinity,
+              height: 130,fit: BoxFit.fill,),
+            ),
+            
+            selectService(),
+            todaysOfferBanner(),
+            bestOffers(),
+            customerReviews(),
+          ],
+        ),
       ),
     );
   }
@@ -328,13 +333,13 @@ class _HomePageState extends State<HomePage> {
 
   todaysOfferBanner() {
     return Padding(
-      padding: const EdgeInsets.all(fixPadding * 2.0),
+      padding: const EdgeInsets.all(fixPadding * 1.0),
       child: InkWell(
         onTap: () {},
         borderRadius: BorderRadius.circular(10.0),
         child: ClipRRect(
           borderRadius: BorderRadius.circular(10.0),
-          child: Image.asset('assets/todays-offer-banner.png'),
+          child: Image.asset('assets/images/add.png'),
         ),
       ),
     );
@@ -390,9 +395,9 @@ class _HomePageState extends State<HomePage> {
                               BorderRadius.vertical(top: Radius.circular(10.0)),
                           child: Image.asset(
                             item['image'],
-                            width: double.infinity,
+                            width: double.infinity, 
                             height: 225.0,
-                            fit: BoxFit.cover,
+                            fit: BoxFit.fill,
                           ),
                         ),
                         Container(

@@ -9,7 +9,7 @@ class AllReviews extends StatefulWidget {
 }
 
 class _AllReviewsState extends State<AllReviews> {
-  final reviewList = [
+  List reviewList = [
     {
       'name': 'John Doe',
       'image': 'assets/user/user_1.jpg',
@@ -110,12 +110,12 @@ class _AllReviewsState extends State<AllReviews> {
                 children: [
                   ClipRRect(
                     borderRadius: BorderRadius.circular(30.0),
-                    // child: Image.asset(
-                    //   item['image'],
-                    //   width: 60.0,
-                    //   height: 60.0,
-                    //   fit: BoxFit.cover,
-                    // ),
+                    child: Image.asset(
+                      item['image'],
+                      width: 60.0,
+                      height: 60.0,
+                      fit: BoxFit.cover,
+                    ),
                   ),
                   widthSpace,
                   Expanded(
@@ -127,18 +127,18 @@ class _AllReviewsState extends State<AllReviews> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            // Text(
-                            //   item['name'],
-                            //   style: black14BoldTextStyle,
-                            // ),
+                            Text(
+                              item['name'],
+                              style: black14BoldTextStyle,
+                            ),
                             ratingBar(item['rating']),
                           ],
                         ),
                         heightSpace,
-                        // Text(
-                        //   item['review'],
-                        //   style: black14RegularTextStyle,
-                        // ),
+                        Text(
+                          item['review'],
+                          style: black14RegularTextStyle,
+                        ),
                       ],
                     ),
                   ),

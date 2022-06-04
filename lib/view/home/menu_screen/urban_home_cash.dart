@@ -56,7 +56,7 @@ class _UrbanHomeCashState extends State<UrbanHomeCash> {
             bottom: 0.0,
             right: 0.0,
             child: Image.asset(
-              'assets/coin.png',
+              'assets/images/coin.png',
               height: 125.0,
               fit: BoxFit.fitHeight,
             ),

@@ -19,6 +19,7 @@ class _ChatScreenState extends State<ChatScreen> {
   DateTime now = DateTime.now();
   ScrollController _scrollController =   ScrollController();
   late String amPm;
+  
   List chatData = [
     {
       'role': 'me',
@@ -156,12 +157,12 @@ class _ChatScreenState extends State<ChatScreen> {
                                               ? Colors.grey[300]
                                               : primaryColor,
                                         ),
-                                        // child: Text(
-                                        //   item['msg'],
-                                        //   style: (item['role'] == 'sender')
-                                        //       ? black16MediumTextStyle
-                                        //       : white16MediumTextStyle,
-                                        // ),
+                                        child: Text(
+                                          item['msg'],
+                                          style: (item['role'] == 'sender')
+                                              ? black16MediumTextStyle
+                                              : white16MediumTextStyle,
+                                        ),
                                       ),
                                       Padding(
                                         padding: EdgeInsets.all(10.0),
@@ -185,13 +186,14 @@ class _ChatScreenState extends State<ChatScreen> {
                                             const SizedBox(
                                               width: 7.0,
                                             ),
-                                            // Text(
-                                            //   item['time'],
-                                            //   style: grey14MediumTextStyle,
-                                            // ),
+                                            Text(
+                                              item['time'],
+                                              style: grey14MediumTextStyle,
+                                            ),
                                           ],
                                         ),
                                       ),
+                                    
                                     ],
                                   ),
                                 ),
@@ -240,12 +242,7 @@ class _ChatScreenState extends State<ChatScreen> {
                             } else {
                               amPm = 'AM';
                             }
-                            setState(() {
-
-
-
-
-                              
+                            setState(() {                              
                               chatData.insert(0, {
                                 'role': 'me',
                                 'msg': msgController.text,

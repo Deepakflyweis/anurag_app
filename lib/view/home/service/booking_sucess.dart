@@ -29,7 +29,7 @@ class BookingSuccess extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Image.asset(
-                'assets/booking-success.png',
+                'assets/images/booking-success.png',
                 width: double.infinity,
               ),
               height20Space,

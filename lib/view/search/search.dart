@@ -9,12 +9,12 @@ class Search extends StatefulWidget {
 }
 
 class _SearchState extends State<Search> {
-  final recentSearchesList = [
+  List recentSearchesList = [
     {'title': 'Home cleaning service'},
     {'title': 'Electrician'},
   ];
 
-  final trendingList = [
+  List trendingList = [
     {'title': 'Sofa cleaning services'},
     {'title': 'Head massage services'},
     {'title': 'Plumber'},
@@ -114,12 +114,12 @@ class _SearchState extends State<Search> {
                       color: greyColor,
                     ),
                     width5Space,
-                    // Expanded(
-                    //   child: Text(
-                    //     item['title'],
-                    //     style: black14MediumTextStyle,
-                    //   ),
-                    // ),
+                    Expanded(
+                      child: Text(
+                        item['title'],
+                        style: black14MediumTextStyle,
+                      ),
+                    ),
                   ],
                 ),
               );
@@ -157,12 +157,12 @@ class _SearchState extends State<Search> {
                       color: greyColor,
                     ),
                     width5Space,
-                    // Expanded(
-                    //   child: Text(
-                    //     item['title'],
-                    //     style: black14MediumTextStyle,
-                    //   ),
-                    // ),
+                    Expanded(
+                      child: Text(
+                        item['title'],
+                        style: black14MediumTextStyle,
+                      ),
+                    ),
                   ],
                 ),
               );

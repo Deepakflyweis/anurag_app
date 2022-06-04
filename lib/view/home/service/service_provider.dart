@@ -1,5 +1,6 @@
 
 import 'package:anurag_app/utils/utility.dart';
+import 'package:anurag_app/view/home/chat/chat_detail.dart';
 import 'package:anurag_app/view/home/service/select_date.dart';
 import 'package:anurag_app/view/home/service/view_all_review.dart';
 import 'package:anurag_app/widget/column_builder.dart';
@@ -19,7 +20,7 @@ class ServiceProvider extends StatefulWidget {
 class _ServiceProviderState extends State<ServiceProvider> {
   bool favorite = false;
 
-  final serviceIncludeList = [
+  List serviceIncludeList = [
     {
       'title': 'Deep Cleaning',
       'image': 'assets/service-include/service-include-1.jpg',
@@ -38,7 +39,7 @@ class _ServiceProviderState extends State<ServiceProvider> {
     }
   ];
 
-  final reviewList = [
+  List reviewList = [
     {
       'name': 'John Doe',
       'image': 'assets/user/user_1.jpg',
@@ -79,7 +80,7 @@ class _ServiceProviderState extends State<ServiceProvider> {
                 type: PageTransitionType.rightToLeft,
                 child: SelectDateTime(),
               ),
-            );
+            );  
           },
           child: Container(
             height: 50.0,
@@ -121,15 +122,15 @@ class _ServiceProviderState extends State<ServiceProvider> {
                       color: blackColor,
                     ),
                     onPressed: () {
-                      // Navigator.push(
-                      //   context,
-                      //   PageTransition(
-                      //     type: PageTransitionType.rightToLeft,
-                      //     child: ChatScreen(
-                      //       name: 'Amara Smith',
-                      //     ),
-                      //   ),
-                      // );
+                      Navigator.push(
+                        context,
+                        PageTransition(
+                          type: PageTransitionType.rightToLeft,
+                          child: ChatScreen(
+                            name: 'Amara Smith',
+                          ),
+                        ),
+                      );
                     },
                   ),
                   IconButton(
@@ -321,12 +322,12 @@ class _ServiceProviderState extends State<ServiceProvider> {
                           children: [
                             ClipRRect(
                               borderRadius: BorderRadius.circular(10.0),
-                              // child: Image.asset(
-                              //   item['image'],
-                              //   width: 100.0,
-                              //   height: 100.0,
-                              //   fit: BoxFit.cover,
-                              // ),
+                              child: Image.asset(
+                                item['image'],
+                                width: 100.0,
+                                height: 100.0,
+                                fit: BoxFit.cover,
+                              ),
                             ),
                             widthSpace,
                             Expanded(
@@ -334,15 +335,15 @@ class _ServiceProviderState extends State<ServiceProvider> {
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  // Text(
-                                  //   item['title'],
-                                  //   style: black14MediumTextStyle,
-                                  // ),
+                                  Text(
+                                    item['title'],
+                                    style: black14MediumTextStyle,
+                                  ),
                                   heightSpace,
-                                  // Text(
-                                  //   item['subtitle'],
-                                  //   style: black14RegularTextStyle,
-                                  // ),
+                                  Text(
+                                    item['subtitle'],
+                                    style: black14RegularTextStyle,
+                                  ),
                                 ],
                               ),
                             ),
@@ -357,27 +358,27 @@ class _ServiceProviderState extends State<ServiceProvider> {
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  // Text(
-                                  //   item['title'],
-                                  //   style: black14MediumTextStyle,
-                                  // ),
+                                  Text(
+                                    item['title'],
+                                    style: black14MediumTextStyle,
+                                  ),
                                   heightSpace,
-                                  // Text(
-                                  //   item['subtitle'],
-                                  //   style: black14RegularTextStyle,
-                                  // ),
+                                  Text(
+                                    item['subtitle'],
+                                    style: black14RegularTextStyle,
+                                  ),
                                 ],
                               ),
                             ),
                             widthSpace,
                             ClipRRect(
                               borderRadius: BorderRadius.circular(10.0),
-                              // child: Image.asset(
-                              //   item['image'],
-                              //   width: 100.0,
-                              //   height: 100.0,
-                              //   fit: BoxFit.cover,
-                              // ),
+                              child: Image.asset(
+                                item['image'],
+                                width: 100.0,
+                                height: 100.0,
+                                fit: BoxFit.cover,
+                              ),
                             ),
                           ],
                         ),
@@ -437,12 +438,12 @@ class _ServiceProviderState extends State<ServiceProvider> {
                   children: [
                     ClipRRect(
                       borderRadius: BorderRadius.circular(30.0),
-                      // child: Image.asset(
-                      //   item['image'],
-                      //   width: 60.0,
-                      //   height: 60.0,
-                      //   fit: BoxFit.cover,
-                      // ),
+                      child: Image.asset(
+                        item['image'],
+                        width: 60.0,
+                        height: 60.0,
+                        fit: BoxFit.cover,
+                      ),
                     ),
                     widthSpace,
                     Expanded(
@@ -454,18 +455,18 @@ class _ServiceProviderState extends State<ServiceProvider> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              // Text(
-                              //   item['name'],
-                              //   style: black14BoldTextStyle,
-                              // ),
+                              Text(
+                                item['name'],
+                                style: black14BoldTextStyle,
+                              ),
                               ratingBar(item['rating']),
                             ],
                           ),
                           heightSpace,
-                          // Text(
-                          //   item['review'],
-                          //   style: black14RegularTextStyle,
-                          // ),
+                          Text(
+                            item['review'],
+                            style: black14RegularTextStyle,
+                          ),
                         ],
                       ),
                     ),

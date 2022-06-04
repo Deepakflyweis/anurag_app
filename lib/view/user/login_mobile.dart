@@ -215,7 +215,7 @@ class _LoginMobileScreenState extends State<LoginMobileScreen> {
                                   Get.to(() => LoginGmail());
                             },
                             child: const Text(
-                              """   Sign in""",
+                              """ Sign in""",
                               style: TextStyle(
                                 fontSize: 15,
                                 color: Colors.blue,

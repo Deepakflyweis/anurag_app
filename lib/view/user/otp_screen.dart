@@ -60,11 +60,11 @@ class _OtpScreenState extends State<OtpScreen>   {
       },
     );
     Timer(
-        Duration(seconds: 3),
+        Duration(seconds: 2),
         () => Navigator.push(
             context,
             PageTransition(
-                duration: Duration(milliseconds: 600),
+                duration: Duration(milliseconds: 400),
                 type: PageTransitionType.fade,
                 child: BottomBar( index: 1,)
                 )));

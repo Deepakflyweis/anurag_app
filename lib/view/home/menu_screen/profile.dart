@@ -5,6 +5,7 @@ import 'package:anurag_app/view/home/notification/notification.dart';
 import 'package:anurag_app/view/home/profile/edit_profile.dart';
 import 'package:anurag_app/view/home/profile/favorite.dart';
 import 'package:anurag_app/view/support/support.dart';
+import 'package:anurag_app/view/user/login_gmail_page.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
  
@@ -69,12 +70,12 @@ class _ProfileState extends State<Profile> {
                         ),
                         InkWell(
                           onTap: () {
-                            // Navigator.push(
-                            //   context,
-                            //   MaterialPageRoute(
-                            //     builder: (context) => Login(),
-                            //   ),
-                            // );
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => LoginGmail(),
+                              ),
+                            );
                           },
                           child: Container(
                             width: (width - fixPadding * 14.0) / 2,

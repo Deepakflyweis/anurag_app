@@ -1,18 +1,21 @@
+// ignore_for_file: library_private_types_in_public_api
 
 import 'package:anurag_app/utils/utility.dart';
+import 'package:anurag_app/view/home/service/service_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_slidable/flutter_slidable.dart'; 
- 
-
-
+import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:page_transition/page_transition.dart';
 
 class Favorite extends StatefulWidget {
+  const Favorite({super.key});
+
+   
   @override
   _FavoriteState createState() => _FavoriteState();
 }
 
 class _FavoriteState extends State<Favorite> {
-  final favoriteList = [
+  List favoriteList = [
     {
       'name': 'Apollonia Anderson',
       'image': 'assets/provider/provider_1.jpg',
@@ -123,17 +126,17 @@ class _FavoriteState extends State<Favorite> {
                         : EdgeInsets.all(fixPadding * 2.0),
                     child: InkWell(
                       onTap: () {
-                        // Navigator.push(
-                        //   context,
-                        //   PageTransition(
-                        //     duration: Duration(milliseconds: 600),
-                        //     type: PageTransitionType.fade,
-                        //     child: ServiceProvider(
-                        //       heroTag: item['heroTag'],
-                        //       image: item['image'],
-                        //     ),
-                        //   ),
-                        // );
+                        Navigator.push(
+                          context,
+                          PageTransition(
+                            duration: Duration(milliseconds: 600),
+                            type: PageTransitionType.fade,
+                            child: ServiceProvider(
+                              heroTag: item['heroTag'],
+                              image: item['image'],
+                            ),
+                          ),
+                        );
                       },
                       borderRadius: BorderRadius.circular(10.0),
                       child: Container(
@@ -155,14 +158,14 @@ class _FavoriteState extends State<Favorite> {
                           children: [
                             ClipRRect(
                               borderRadius: BorderRadius.circular(10.0),
-                              // child: Hero(
-                              //   tag: item['heroTag'],
-                              //   child: Image.asset(
-                              //     item['image'],
-                              //     width: 100.0,
-                              //     height: 100.0,
-                              //   ),
-                              // ),
+                              child: Hero(
+                                tag: item['heroTag'],
+                                child: Image.asset(
+                                  item['image'],
+                                  width: 100.0,
+                                  height: 100.0,
+                                ),
+                              ),
                             ),
                             widthSpace,
                             Container(
@@ -179,15 +182,15 @@ class _FavoriteState extends State<Favorite> {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
-                                        // Text(
-                                        //   item['name'],
-                                        //   style: black14RegularTextStyle,
-                                        // ),
+                                        Text(
+                                          item['name'],
+                                          style: black14RegularTextStyle,
+                                        ),
                                         height5Space,
-                                        // Text(
-                                        //   item['service'],
-                                        //   style: grey12BoldTextStyle,
-                                        // ),
+                                        Text(
+                                          item['service'],
+                                          style: grey12BoldTextStyle,
+                                        ),
                                       ],
                                     ),
                                   ),
@@ -210,10 +213,10 @@ class _FavoriteState extends State<Favorite> {
                                               style: grey12BoldTextStyle,
                                             ),
                                             height5Space,
-                                            // Text(
-                                            //   item['jobs'],
-                                            //   style: black14BoldTextStyle,
-                                            // ),
+                                            Text(
+                                              item['jobs'],
+                                              style: black14BoldTextStyle,
+                                            ),
                                           ],
                                         ),
                                         Column(
@@ -250,15 +253,15 @@ class _FavoriteState extends State<Favorite> {
                                               crossAxisAlignment:
                                                   CrossAxisAlignment.center,
                                               children: [
-                                                Icon(
+                                                const Icon(
                                                   Icons.star_rate,
                                                   size: 20.0,
                                                   color: orangeColor,
                                                 ),
-                                                // Text(
-                                                //   item['rating'],
-                                                //   style: black14BoldTextStyle,
-                                                // ),
+                                                Text(
+                                                  item['rating'],
+                                                  style: black14BoldTextStyle,
+                                                ),
                                               ],
                                             ),
                                           ],
