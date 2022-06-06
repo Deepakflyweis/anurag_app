@@ -26,8 +26,9 @@ class LoginGmail extends StatelessWidget {
                       """Welcome 
 Back.""",
                       style: TextStyle(
-                        fontSize: 25,
-                        color: blackColor,
+                        fontSize: 36,
+                        color: Color(0xff333333),
+                        fontFamily: 'Poppins',
                         fontWeight: FontWeight.w500,
                       ),
                     ),
@@ -60,7 +61,7 @@ Back.""",
                                     BorderSide(color: greyColor, width: 0.5)),
                             contentPadding: EdgeInsets.only(left: 20.0),
                             hintText: 'Email',
-                            hintStyle: black14MediumTextStyle,
+                            hintStyle: grey14RegularTextStyle,
                             border: InputBorder.none,
                           ),
                         ),
@@ -87,7 +88,7 @@ Back.""",
                                     BorderSide(color: greyColor, width: 0.5)),
                             contentPadding: EdgeInsets.only(left: 20.0),
                             hintText: 'Password',
-                            hintStyle: black14MediumTextStyle,
+                            hintStyle: grey14MediumTextStyle,
                             border: InputBorder.none,
                           ),
                         ),
@@ -125,20 +126,20 @@ Back.""",
                         ),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 40,
                     ),
-                    Center(
+                    const Center(
                       child: Text(
                         """ OR""",
                         style: TextStyle(
                           fontSize: 14,
-                          color: Colors.grey.shade700,
+                          color: Colors.black,
                           fontWeight: FontWeight.w900,
                         ),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     Padding(
@@ -152,6 +153,7 @@ Back.""",
                           borderRadius: BorderRadius.circular(10.0),
                           border: Border.all(
                             color: greyColor,
+                            width: 1.5
                           ),
                           color: whiteColor,
                         ),
@@ -167,7 +169,7 @@ Back.""",
                             ),
                             width20Space,
                             Text(
-                              'Log in with Google',
+                              'Sign in with Google',
                               style: black14MediumTextStyle,
                             ),
                           ],
@@ -198,7 +200,7 @@ Back.""",
                             ),
                             width20Space,
                             Text(
-                              'Log in with Facebook',
+                              'Sign in with Facebook',
                               style: white14MediumTextStyle,
                             ),
                           ],
@@ -223,7 +225,7 @@ Back.""",
                               Get.to(() => Register());
                             },
                             child: const Text(
-                              """   SignUp""",
+                              """ SignUp""",
                               style: TextStyle(
                                 fontSize: 15,
                                 color: Colors.blue,

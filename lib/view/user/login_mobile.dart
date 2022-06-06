@@ -58,40 +58,75 @@ class _LoginMobileScreenState extends State<LoginMobileScreen> {
                 ),
                 SizedBox(height: 50.0),
                 Text(
-                  'Signin with phone number',
-                  style: grey14BoldTextStyle,
+                  'Sign in with phone number',
+                  style: black14MediumTextStyle,
                 ),
                 Padding(
                   padding: EdgeInsets.all(20.0),
-                  child: Container(
-                    padding: EdgeInsets.only(left: fixPadding * 2.0),
+                  child: Container(  
+                                      
                     decoration: BoxDecoration(
                       color: whiteColor,
                       borderRadius: BorderRadius.circular(10.0),
                       boxShadow: [
                         BoxShadow(
-                          blurRadius: 4.0,
-                          spreadRadius: 1.0,
-                          color: blackColor.withOpacity(0.25),
+                          blurRadius: 2.0,
+                          spreadRadius: 2.0,
+                          color:  Colors.grey.shade300,
                         ),
                       ],
                     ),
-                    child: InternationalPhoneNumberInput(
-                      onInputChanged: (value) {},
-                      textStyle: black14RegularTextStyle,
-                      //autoValidate: false,
-                      selectorTextStyle: black16MediumTextStyle,
-                      initialValue: number,
-                      textFieldController: controller,
-                      inputBorder: InputBorder.none,
-                      inputDecoration: InputDecoration(
-                        //contentPadding: EdgeInsets.only(left: 0.0),
-                        hintText: 'Phone Number',
-                        hintStyle: black14RegularTextStyle,
-                        border: InputBorder.none,
-                      ),
-                      //selectorType: PhoneInputSelectorType.DIALOG,
-                    ),
+                    child:
+                     TextFormField(                        
+                       keyboardType: TextInputType.number,                       
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return 'Field can\'t be empty';
+                          }
+                          return null;
+                        },
+                       decoration: InputDecoration(     
+                         contentPadding: EdgeInsets.all(12),  
+                         hintText: "Phone Number",  
+                         border: InputBorder.none,
+                         hintStyle: TextStyle(                           
+                           color: Colors.grey.shade400,fontWeight: FontWeight.bold),                           
+                         prefixIcon: Row(  
+                          mainAxisSize: MainAxisSize.min,                   
+                        children: [
+                         width5Space,
+                          CircleAvatar(radius: 18,
+                          backgroundColor: whiteColor,
+                           child: Image.asset("assets/images/ind.png"),
+                          ),
+                          width5Space,
+                          Text(" +91   ",style: black16MediumTextStyle,)
+                             ],
+                                         ),
+                     ),
+                     )
+                    
+                    // InternationalPhoneNumberInput(
+                    //   onInputChanged: (value) {},
+                    //   textStyle: black14RegularTextStyle,
+                    //   //autoValidate: false,
+                    //   selectorTextStyle: black16MediumTextStyle,
+                    //   spaceBetweenSelectorAndTextField: 1,
+                    //   initialValue: number,
+                    //   selectorConfig: SelectorConfig(
+                    //     showFlags: true,
+                    //      setSelectorButtonAsPrefixIcon: false,
+                    //   ),
+                    //   textFieldController: controller,
+                    //   inputBorder: InputBorder.none,
+                    //   inputDecoration: InputDecoration(
+                    //     //contentPadding: EdgeInsets.only(left: 0.0),
+                    //     hintText: 'Phone Number',
+                    //     hintStyle: black14RegularTextStyle,
+                    //     border: InputBorder.none,
+                    //   ),
+                    //   //selectorType: PhoneInputSelectorType.DIALOG,
+                    // ),
                   ),
                 ),
                 heightSpace,
@@ -111,7 +146,7 @@ class _LoginMobileScreenState extends State<LoginMobileScreen> {
                     borderRadius: BorderRadius.circular(10.0),
                     child: Container(
                       width: double.infinity,
-                      height: 40.0,
+                      height: 45.0,
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10.0),
@@ -140,7 +175,7 @@ class _LoginMobileScreenState extends State<LoginMobileScreen> {
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10.0),
-                      border: Border.all(color: greyColor),
+                      border: Border.all(color: greyColor,width: 1.5),
                       color: whiteColor,
                     ),
                     child: Row(
@@ -155,7 +190,7 @@ class _LoginMobileScreenState extends State<LoginMobileScreen> {
                         ),
                         width20Space,
                         Text(
-                          'Log in with Google',
+                          'Sign in with Google',
                           style: black14MediumTextStyle,
                         ),
                       ],
@@ -188,7 +223,7 @@ class _LoginMobileScreenState extends State<LoginMobileScreen> {
                         ),
                         width20Space,
                         Text(
-                          'Log in with Facebook',
+                          'Sign in with Facebook',
                           style: white14MediumTextStyle,
                         ),
                       ],
@@ -202,7 +237,7 @@ class _LoginMobileScreenState extends State<LoginMobileScreen> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           const Text(
-                           "Already have an account? ",
+                           "Already have an account?",
                             style: TextStyle(
                               fontSize: 15,
                               color: blackColor,
@@ -210,12 +245,11 @@ class _LoginMobileScreenState extends State<LoginMobileScreen> {
                             ),
                           ),
                           TextButton(
-                            onPressed: () {
-                          
+                            onPressed: () {                          
                                   Get.to(() => LoginGmail());
                             },
                             child: const Text(
-                              """ Sign in""",
+                              """Sign in""",
                               style: TextStyle(
                                 fontSize: 15,
                                 color: Colors.blue,

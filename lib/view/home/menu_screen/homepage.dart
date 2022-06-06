@@ -19,27 +19,27 @@ class _HomePageState extends State<HomePage> {
   
     List serviceList = [
     {
-      'title': 'Personal Care Services',
+      'title': 'Cleaning',
       'image': 'assets/images/clean.png',
        
     },
     {
-      'title': 'Home Care Services',
+      'title': 'Plumber',
       'image': 'assets/images/plumber.png',
        
     },
     {
-      'title': 'Home Design Services',
+      'title': 'Electrician',
       'image': 'assets/images/elec.png',
        
     },
     {
-      'title': 'Repair Services',
+      'title': 'Painter',
       'image': 'assets/images/painter.png',
        
     },
     {
-      'title': 'Best Offer',
+      'title': 'Yoga Train',
       'image': 'assets/images/yoga.png',
       
     },
@@ -124,6 +124,14 @@ class _HomePageState extends State<HomePage> {
             
             selectService(),
             todaysOfferBanner(),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(
+            fixPadding * 2.0, 8.0, fixPadding * 2.0, fixPadding * 1.0),
+              child: Text(
+              "OFFERS YOU CAN'T MISS",
+              style: black16BoldTextStyle,
+             ),
+            ),
             bestOffers(),
             customerReviews(),
           ],
@@ -277,7 +285,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         SizedBox(
-          height: 150.0,           
+          height: 170.0,           
           child: ListView.builder(
             shrinkWrap: true,
             itemCount: serviceList.length,
@@ -286,7 +294,7 @@ class _HomePageState extends State<HomePage> {
             itemBuilder: (context, index) {
                 final item = serviceList[index];
               return Padding(
-                 padding: EdgeInsets.all(10),
+                 padding: EdgeInsets.only(left: 10),
                 // padding: (index != serviceList.length - 1)
                 //     ? const EdgeInsets.only(left: fixPadding * 2.0)
                 //     : const EdgeInsets.symmetric(horizontal: fixPadding * 2.0),
@@ -317,10 +325,13 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
 
-                    Text(
-                           item['title'],
-                           style: black14MediumTextStyle,
-                         ),
+                    Center(
+                      child: Text(
+                             item['title'],
+                             style: black14MediumTextStyle,
+                             maxLines: 2,
+                           ),
+                    ),
                   ],
                 ),
               );
@@ -346,88 +357,66 @@ class _HomePageState extends State<HomePage> {
   }
 
   bestOffers() {
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(
-          fixPadding * 2.0, 0.0, fixPadding * 2.0, fixPadding * 2.0),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            "OFFERS YOU CAN'T MISS",
-            style: black16BoldTextStyle,
-          ),
-          ColumnBuilder(
-            itemCount: bestOfferList.length,
-            itemBuilder: (context, index) {
-              final item = bestOfferList[index];
-              return Padding(
-                padding: const EdgeInsets.only(top: fixPadding * 2.0),
-                child: InkWell(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      PageTransition(
-                        type: PageTransitionType.rightToLeft,
-                        child: ServiceProviderList(),
-                      ),
-                    );
-                  },
-                  borderRadius: BorderRadius.circular(10.0),
-                  child: Container(
-                    decoration: BoxDecoration(
+    return SizedBox(
+      height: 250,
+      child: Padding(
+        padding: const EdgeInsets.all(10),
+        child:  ListView.builder(  
+             shrinkWrap: true,
+             scrollDirection: Axis.horizontal,            
+             itemCount: bestOfferList.length,
+             itemBuilder: (context, index) {
+               final item = bestOfferList[index];
+               return Container(    
+                      height: 250,
+                      width: 300,
+                      decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10.0),
                       color: whiteColor,
-                      boxShadow: [
-                        BoxShadow(
-                          blurRadius: 4.0,
-                          spreadRadius: 1.0,
-                          color: blackColor.withOpacity(0.25),
-                        ),
-                      ],
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        ClipRRect(
-                          borderRadius:
-                              BorderRadius.vertical(top: Radius.circular(10.0)),
-                          child: Image.asset(
-                            item['image'],
-                            width: double.infinity, 
-                            height: 225.0,
-                            fit: BoxFit.fill,
+                       boxShadow: [
+                          BoxShadow(
+                            blurRadius: 4.0,
+                            spreadRadius: 1.0,
+                            color: blackColor.withOpacity(0.25),
                           ),
+                        ],
+                      ),           
+                 child: Column(
+                   mainAxisAlignment: MainAxisAlignment.start,
+                   crossAxisAlignment: CrossAxisAlignment.center,
+                   children: [
+                     InkWell(
+                       onTap: () {
+                                Navigator.push(
+                                  context,
+                                  PageTransition(
+                                    type: PageTransitionType.rightToLeft,
+                                    child: ServiceProviderList(),
+                                  ),
+                                );
+                              },
+                       child: Image.asset(
+                         item['image'],
+                         width: double.infinity, 
+                         height: 200.0,
+                         fit: BoxFit.fill,
+                         ),
                         ),
-                        Container(
-                          width: double.infinity,
-                          padding: EdgeInsets.all(fixPadding),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                item['title'],
-                                style: black12MediumTextStyle,
-                              ),
-                              height5Space,
-                              Text(
-                                item['subtitle'],
-                                style: grey12MediumTextStyle,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              );
-            },
-          ),
-        ],
-      ),
+                      Text(
+                             item['title'],
+                             style: black12MediumTextStyle,
+                           ),
+                           height5Space,
+                      Text(
+                             item['subtitle'],
+                             style: grey12MediumTextStyle,
+                           ),                 
+                   ],
+                 ),
+               );
+             },
+           ),
+        ), 
     );
   }
 

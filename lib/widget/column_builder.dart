@@ -23,8 +23,8 @@ class ColumnBuilder extends StatelessWidget {
 
 	@override
 	Widget build(BuildContext context) {
-		return new Column(
-			children: new List.generate(this.itemCount,
+		return   Column(
+			children: List.generate(this.itemCount,
 					(index) => this.itemBuilder(context, index)).toList(),
 		);
 	}

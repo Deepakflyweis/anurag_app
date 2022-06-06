@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
       title: 'anurag_app',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(     
+        fontFamily: 'Poppins',
         primarySwatch: Colors.blue,
       ),
       home: LoginMobileScreen(),

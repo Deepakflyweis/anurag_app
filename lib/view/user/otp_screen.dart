@@ -106,7 +106,7 @@ class _OtpScreenState extends State<OtpScreen>   {
                     const EdgeInsets.symmetric(horizontal: fixPadding * 2.0),
                 child: Text(
                   'Enter the otp code from the phone we just sent you',
-                  style: grey14BoldTextStyle,
+                  style: black14MediumTextStyle ,
                   textAlign: TextAlign.center,
                 ),
               ),
@@ -115,13 +115,13 @@ class _OtpScreenState extends State<OtpScreen>   {
               Padding(
                 padding: EdgeInsets.all(20.0),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
                     // 1 Start
                     Container(
-                      width: 50.0,
-                      height: 50.0,
+                      width: 60.0,
+                      height: 60.0,
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
                         color: whiteColor,
@@ -152,8 +152,8 @@ class _OtpScreenState extends State<OtpScreen>   {
                     // 1 End
                     // 2 Start
                     Container(
-                      width: 50.0,
-                      height: 50.0,
+                      width: 60.0,
+                      height: 60.0,
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
                         color: whiteColor,
@@ -185,8 +185,8 @@ class _OtpScreenState extends State<OtpScreen>   {
                     // 2 End
                     // 3 Start
                     Container(
-                      width: 50.0,
-                      height: 50.0,
+                      width: 60.0,
+                      height: 60.0,
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
                         color: whiteColor,
@@ -218,8 +218,8 @@ class _OtpScreenState extends State<OtpScreen>   {
                     // 3 End
                     // 4 Start
                     Container(
-                      width: 50.0,
-                      height: 50.0,
+                      width: 60.0,
+                      height: 60.0,
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
                         color: whiteColor,
@@ -258,19 +258,19 @@ class _OtpScreenState extends State<OtpScreen>   {
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: fixPadding * 2.0),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
                     Text(
-                      'Didn\'t receive OTP Code!',
-                      style: grey14MediumTextStyle,
+                      'Didn\'t receive OTP Code! ',
+                      style: grey14BoldTextStyle,
                     ),
                     width5Space,
                     InkWell(
                       onTap: () {},
                       child: Text(
-                        'Resend',
-                        style: black18BoldTextStyle,
+                        ' Resend',
+                        style: black16BoldTextStyle,
                       ),
                     ),
                   ],
