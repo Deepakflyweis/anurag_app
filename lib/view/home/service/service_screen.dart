@@ -1,5 +1,6 @@
 
 import 'package:anurag_app/utils/utility.dart';
+import 'package:anurag_app/view/home/service/service_provider.dart';
 import 'package:anurag_app/view/home/service/service_prvider_list.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
@@ -75,7 +76,8 @@ class _ServiceListState extends State<ServiceList> {
                   context,
                   PageTransition(
                     type: PageTransitionType.rightToLeft,
-                    child: ServiceProviderList(),
+                    child: ServiceProvider(),
+                    // ServiceProviderList(),
                   ),
                 );
               },

@@ -4,9 +4,12 @@ import 'package:anurag_app/utils/utility.dart';
 import 'package:anurag_app/view/home/bottom_bar.dart';
 import 'package:anurag_app/view/home/service/service_prvider_list.dart';
 import 'package:anurag_app/view/home/service/service_screen.dart';
+import 'package:anurag_app/view/home/service/service_view_detail.dart';
 import 'package:anurag_app/view/search/search.dart';
 import 'package:anurag_app/widget/column_builder.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/get_navigation.dart';
 import 'package:page_transition/page_transition.dart';
  
 
@@ -60,17 +63,81 @@ class _HomePageState extends State<HomePage> {
       'title': 'Salon for Men',
       'image': 'assets/images/img2.png',
       'subtitle': 'Upto 50% Off'
+    },  
+    {
+      'title': 'Bathroom Cleaning',
+      'image': 'assets/images/img3.png',
+      'subtitle': 'Free Fan Cleaning & More'
     },
+      
+    // {
+    //   'title': 'House Painters',
+    //   'image': 'assets/images/img1.png',
+    //   'subtitle': 'Upto 15% Off'
+    // }
+  ];
+
+  List pamperList = [    
     {
       'title': 'Bathroom Cleaning',
       'image': 'assets/images/img3.png',
       'subtitle': 'Free Fan Cleaning & More'
     },
     {
-      'title': 'House Painters',
+      'title': 'Salon at home for Women',
       'image': 'assets/images/img1.png',
-      'subtitle': 'Upto 15% Off'
-    }
+      'subtitle': 'Upto 50% Off'
+    },    
+  ];
+
+  List categoryList = [    
+    {
+      'title': 'Home Painters',
+      'image': 'assets/images/img4.png',
+      'subtitle': 'Upto 50% Off'
+    },
+    {
+      'title': 'Salon at home for Women',
+      'image': 'assets/images/img1.png',
+      'subtitle': 'Upto 50% Off'
+    },    
+  ];
+
+  List trendingList = [    
+    {
+      'title': 'Salon at home for Women',
+      'image': 'assets/images/img1.png',
+      'subtitle': 'Upto 50% Off'
+    },    
+    {
+      'title': 'Salon for Men',
+      'image': 'assets/images/img2.png',
+      'subtitle': 'Upto 50% Off'
+    },  
+    {
+      'title': 'Bathroom Cleaning',
+      'image': 'assets/images/img3.png',
+      'subtitle': 'Free Fan Cleaning & More'
+    },  
+  ];
+
+  List budgetList = [    
+    {
+      'title': 'Salon at home for Women',
+      'image': 'assets/images/img1.png',
+      'subtitle': 'Upto 50% Off'
+       
+    },    
+    {
+      'title': 'Salon for Men',
+      'image': 'assets/images/img2.png',
+      'subtitle': 'Upto 50% Off'
+    },  
+    {
+      'title': 'Bathroom Cleaning',
+      'image': 'assets/images/img3.png',
+      'subtitle': 'Free Fan Cleaning & More'
+    },  
   ];
 
   List reviewList = [
@@ -133,7 +200,81 @@ class _HomePageState extends State<HomePage> {
              ),
             ),
             bestOffers(),
-            customerReviews(),
+
+            Padding(
+              padding: const EdgeInsets.fromLTRB(
+              fixPadding * 2.0, 8.0, fixPadding * 2.0, fixPadding * 1.0),
+              child: Text(
+              "Pamper Yourself".toUpperCase(),
+              style: black16BoldTextStyle,
+             ),
+            ),
+            pamperYourself(),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Image.asset(
+                "assets/images/add2.png", width: double.infinity,
+              height: 130,fit: BoxFit.fill,),
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(
+              fixPadding * 2.0, 8.0, fixPadding * 2.0, fixPadding * 1.0),
+              child: Text(
+              "Top categories".toUpperCase(),
+              style: black16BoldTextStyle,
+             ),
+            ),
+            topCategory(),
+
+            Padding(
+              padding: const EdgeInsets.fromLTRB(
+              fixPadding * 2.0, 8.0, fixPadding * 2.0, fixPadding * 1.0),
+              child: Text(
+              "Trending Now".toUpperCase(),
+              style: black16BoldTextStyle,
+             ),
+            ),
+
+            trendinNow(),
+
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Image.asset(
+                "assets/images/add.png", width: double.infinity,
+              height: 130,fit: BoxFit.fill,),
+            ),
+
+            Padding(
+              padding: const EdgeInsets.fromLTRB(
+              fixPadding * 2.0, 8.0, fixPadding * 2.0, fixPadding * 1.0),
+              child: Text(
+              "budgeted curations".toUpperCase(),
+              style: black16BoldTextStyle,
+             ),
+            ),
+            budgetCuration(),
+
+             Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Image.asset(
+                "assets/images/add.png", width: double.infinity,
+              height: 130,fit: BoxFit.fill,),
+            ),
+
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Image.asset(
+                "assets/images/add2.png", width: double.infinity,
+              height: 130,fit: BoxFit.fill,),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Image.asset(
+                "assets/images/add2.png", width: double.infinity,
+              height: 130,fit: BoxFit.fill,),
+            ),
+
+            // customerReviews(),
           ],
         ),
       ),
@@ -359,66 +500,317 @@ class _HomePageState extends State<HomePage> {
   bestOffers() {
     return SizedBox(
       height: 250,
-      child: Padding(
-        padding: const EdgeInsets.all(10),
-        child:  ListView.builder(  
-             shrinkWrap: true,
-             scrollDirection: Axis.horizontal,            
-             itemCount: bestOfferList.length,
-             itemBuilder: (context, index) {
-               final item = bestOfferList[index];
-               return Container(    
-                      height: 250,
-                      width: 300,
-                      decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10.0),
-                      color: whiteColor,
-                       boxShadow: [
-                          BoxShadow(
-                            blurRadius: 4.0,
-                            spreadRadius: 1.0,
-                            color: blackColor.withOpacity(0.25),
-                          ),
-                        ],
-                      ),           
-                 child: Column(
-                   mainAxisAlignment: MainAxisAlignment.start,
-                   crossAxisAlignment: CrossAxisAlignment.center,
-                   children: [
-                     InkWell(
-                       onTap: () {
-                                Navigator.push(
-                                  context,
-                                  PageTransition(
-                                    type: PageTransitionType.rightToLeft,
-                                    child: ServiceProviderList(),
-                                  ),
-                                );
-                              },
-                       child: Image.asset(
-                         item['image'],
-                         width: double.infinity, 
-                         height: 200.0,
-                         fit: BoxFit.fill,
-                         ),
-                        ),
-                      Text(
-                             item['title'],
-                             style: black12MediumTextStyle,
+      child: ListView.builder(  
+           shrinkWrap: true,
+           scrollDirection: Axis.horizontal,            
+           itemCount: bestOfferList.length,
+           itemBuilder: (context, index) {
+             final item = bestOfferList[index];
+             return Padding(
+               padding: const EdgeInsets.all(10.0),
+               child: Card(
+                 elevation: 2,
+                 child: Container(    
+                        height: 250,
+                        width: 300,                     
+                        decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10.0),
+                        color: whiteColor,
+                        
+                        ),           
+                   child: Column(
+                     mainAxisAlignment: MainAxisAlignment.start,
+                     crossAxisAlignment: CrossAxisAlignment.start,
+                     children: [
+                       InkWell(
+                         onTap: () {
+                           Get.to(() => ServiceViewDetails());
+                                  // Navigator.push(
+                                  //   context,
+                                  //   PageTransition(
+                                  //     type: PageTransitionType.rightToLeft,
+                                  //     child: ServiceProviderList(),
+                                  //   ),
+                                  // );
+                                },
+                         child: Image.asset(
+                           item['image'],
+                           width: double.infinity, 
+                           height: 180.0,
+                           fit: BoxFit.fill,
                            ),
-                           height5Space,
-                      Text(
-                             item['subtitle'],
-                             style: grey12MediumTextStyle,
-                           ),                 
-                   ],
+                          ),
+                        Text(
+                               item['title'],
+                               style: black12MediumTextStyle,
+                             ),
+                             height5Space,
+                        Text(
+                               item['subtitle'],
+                               style: grey12MediumTextStyle,
+                             ),                 
+                     ],
+                   ),
                  ),
-               );
-             },
-           ),
-        ), 
+               ),
+             );
+           },
+         ), 
     );
   }
+
+  
+  
+  pamperYourself(){
+    return SizedBox(
+      height: 250,
+      child: ListView.builder(  
+           shrinkWrap: true,
+           scrollDirection: Axis.horizontal,            
+           itemCount: pamperList.length,
+           itemBuilder: (context, index) {
+             final item = pamperList[index];
+             return Padding(
+               padding: const EdgeInsets.all(10.0),
+               child: Card(
+                 elevation: 2,
+                 child: Container(    
+                        height: 250,
+                        width: 300,                     
+                        decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10.0),
+                        color: whiteColor,                       
+                        ),           
+                   child: Column(
+                     mainAxisAlignment: MainAxisAlignment.start,
+                     crossAxisAlignment: CrossAxisAlignment.start,
+                     children: [
+                       InkWell(
+                         onTap: () {
+                           Get.to(() => ServiceViewDetails());
+                                  // Navigator.push(
+                                  //   context,
+                                  //   PageTransition(
+                                  //     type: PageTransitionType.rightToLeft,
+                                  //     child: ServiceProviderList(),
+                                  //   ),
+                                  // );
+                                },
+                         child: Image.asset(
+                           item['image'],
+                           width: double.infinity, 
+                           height: 180.0,
+                           fit: BoxFit.fill,
+                           ),
+                          ),
+                        Text(
+                               item['title'],
+                               style: black12MediumTextStyle,
+                             ),
+                             height5Space,
+                        Text(
+                               item['subtitle'],
+                               style: grey12MediumTextStyle,
+                             ),                 
+                     ],
+                   ),
+                 ),
+               ),
+             );
+           },
+         ), 
+    );  
+  }
+
+  topCategory(){
+    return SizedBox(
+      height: 250,
+      child: ListView.builder(  
+           shrinkWrap: true,
+           scrollDirection: Axis.horizontal,            
+           itemCount: categoryList.length,
+           itemBuilder: (context, index) {
+             final item = categoryList[index];
+             return Padding(
+               padding: const EdgeInsets.all(10.0),
+               child: Card(
+                 elevation: 2,
+                 child: Container(    
+                        height: 250,
+                        width: 300,                     
+                        decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10.0),
+                        color: whiteColor,                       
+                        ),           
+                   child: Column(
+                     mainAxisAlignment: MainAxisAlignment.start,
+                     crossAxisAlignment: CrossAxisAlignment.start,
+                     children: [
+                       InkWell(
+                         onTap: () {
+
+                           Get.to(() => ServiceViewDetails());
+
+                                  // Navigator.push(
+                                  //   context,
+                                  //   PageTransition(
+                                  //     type: PageTransitionType.rightToLeft,
+                                  //     child: ServiceProviderList(),
+                                  //   ),
+                                  // );
+                                },
+                         child: Image.asset(
+                           item['image'],
+                           width: double.infinity, 
+                           height: 180.0,
+                           fit: BoxFit.fill,
+                           ),
+                          ),
+                        Text(
+                               item['title'],
+                               style: black12MediumTextStyle,
+                             ),
+                             height5Space,
+                        Text(
+                               item['subtitle'],
+                               style: grey12MediumTextStyle,
+                             ),                 
+                     ],
+                   ),
+                 ),
+               ),
+             );
+           },
+         ), 
+    );  
+  } 
+  
+  trendinNow(){
+    return SizedBox(
+      height: 250,
+      child: ListView.builder(  
+           shrinkWrap: true,
+           scrollDirection: Axis.horizontal,            
+           itemCount: trendingList.length,
+           itemBuilder: (context, index) {
+             final item = trendingList[index];
+             return Padding(
+               padding: const EdgeInsets.all(10.0),
+               child: Card(
+                 elevation: 2,
+                 child: Container(    
+                        height: 250,
+                        width: 300,                     
+                        decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10.0),
+                        color: whiteColor,                       
+                        ),           
+                   child: Column(
+                     mainAxisAlignment: MainAxisAlignment.start,
+                     crossAxisAlignment: CrossAxisAlignment.start,
+                     children: [
+                       InkWell(
+                         onTap: () {
+                           Get.to(() => ServiceViewDetails());
+                           
+                                  // Navigator.push(
+                                  //   context,
+                                  //   PageTransition(
+                                  //     type: PageTransitionType.rightToLeft,
+                                  //     child: ServiceProviderList(),
+                                  //   ),
+                                  // );
+                                },
+                         child: Image.asset(
+                           item['image'],
+                           width: double.infinity, 
+                           height: 180.0,
+                           fit: BoxFit.fill,
+                           ),
+                          ),
+                        Text(
+                               item['title'],
+                               style: black12MediumTextStyle,
+                             ),
+                             height5Space,
+                        Text(
+                               item['subtitle'],
+                               style: grey12MediumTextStyle,
+                             ),                 
+                     ],
+                   ),
+                 ),
+               ),
+             );
+           },
+         ), 
+    );  
+  } 
+  
+  budgetCuration(){
+    return SizedBox(
+      height: 250,
+      child: ListView.builder(  
+           shrinkWrap: true,
+           scrollDirection: Axis.horizontal,            
+           itemCount: budgetList.length,
+           itemBuilder: (context, index) {
+             final item = budgetList[index];
+             return Padding(
+               padding: const EdgeInsets.all(10.0),
+               child: Card(
+                 elevation: 2,
+                 child: Container(    
+                        height: 250,
+                        width: 300,                     
+                        decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10.0),
+                        color: whiteColor,                       
+                        ),           
+                   child: Column(
+                     mainAxisAlignment: MainAxisAlignment.start,
+                     crossAxisAlignment: CrossAxisAlignment.start,
+                     children: [
+                       InkWell(
+                         onTap: () {
+
+                           Get.to(() => ServiceViewDetails());
+                           
+                                  // Navigator.push(
+                                  //   context,
+                                  //   PageTransition(
+                                  //     type: PageTransitionType.rightToLeft,
+                                  //     child: ServiceProviderList(),
+                                  //   ),
+                                  // );
+                                },
+                         child: Image.asset(
+                           item['image'],
+                           width: double.infinity, 
+                           height: 180.0,
+                           fit: BoxFit.fill,
+                           ),
+                          ),
+                        Text(
+                               item['title'],
+                               style: black12MediumTextStyle,
+                             ),
+                             height5Space,
+                        Text(
+                               item['subtitle'],
+                               style: grey12MediumTextStyle,
+                             ),                 
+                     ],
+                   ),
+                 ),
+               ),
+             );
+           },
+         ), 
+    );  
+  } 
+  
+  
 
   customerReviews() {
     return Column(

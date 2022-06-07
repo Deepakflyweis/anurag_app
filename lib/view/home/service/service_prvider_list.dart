@@ -140,8 +140,8 @@ class _ServiceProviderListState extends State<ServiceProviderList> {
                     duration: Duration(milliseconds: 600),
                     type: PageTransitionType.fade,
                     child: ServiceProvider(
-                      heroTag: item['heroTag'],
-                      image: item['image'],
+                      // heroTag: item['heroTag'],
+                      // image: item['image'],
                     ),
                   ),
                 );
